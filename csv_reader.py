@@ -1,6 +1,3 @@
-"""
-class used to read and write csv files
-"""
 import csv
 import os
 import logging
@@ -9,6 +6,10 @@ import coloredlogs
 
 log = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
+
+"""
+class used to read and write csv files
+"""
 
 
 class CsvReader:
@@ -39,7 +40,8 @@ class CsvReader:
         log.info("Finished reading %d rows", line_count)
 
     def write_to_files(self):
-        with open(self.origins_file, "a", newline="") as origins_file, open(self.destinations_file, "a", newline="") as destinations_file:
+        with open(self.origins_file, "a", newline="") as origins_file, open(self.destinations_file, "a",
+                                                                            newline="") as destinations_file:
             origins_writer = csv.writer(origins_file, delimiter=",")
             destinations_writer = csv.writer(destinations_file, delimiter=",")
 
@@ -55,5 +57,5 @@ class CsvReader:
         self.write_to_files()
 
 
-csvReader = CsvReader("../CDR SAMPLE (No User ID)/")
+csvReader = CsvReader("../CDR SAMPLE (No User ID)/")  # change directory, if needed
 csvReader.main()
